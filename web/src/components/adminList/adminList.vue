@@ -1,5 +1,5 @@
 <template>
-
+	<div class="main adminList"></div>
 </template>
 
 <script type="text/javascript">

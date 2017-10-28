@@ -10,19 +10,7 @@
 	    </div>
 	    <div class="right">
 	      <div class="top">
-	      <div class="btn-group">
-  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Action <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li role="separator" class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
-	        <div class="gap"><p>xx餐厅后台管理系统</p></div>
+  			<div class="gap"><p>xx餐厅后台管理系统</p></div>
 	        <div>
 	            <i class="glyphicon glyphicon-user"></i><span>管理员</span>
 	        </div>
@@ -35,14 +23,14 @@
 	            </button>
 	        </div>
 	      </div>
-	      <div class="main"><router-view></router-view></div>
-
+	      <router-view></router-view>
 	    </div>
 	</div>
 </template>
 
 <script type="text/javascript">
 	import './home.scss'
+	import './base.scss'
 	export default {
 		name: 'app',
 	    data () {

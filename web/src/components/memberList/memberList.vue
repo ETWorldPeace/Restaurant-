@@ -1,5 +1,5 @@
 <template>
-
+	<div class="main memberList"></div>
 </template>
 
 <script type="text/javascript">

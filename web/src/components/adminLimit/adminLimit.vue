@@ -1,5 +1,5 @@
 <template>
-
+	<div class="main adminLimit"></div>
 </template>
 
 <script type="text/javascript">
