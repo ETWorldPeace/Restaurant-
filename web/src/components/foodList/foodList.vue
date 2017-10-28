@@ -28,13 +28,14 @@
 		</div>
 	</div>
 </template>
-
 <script type="text/javascript">
 	import './foodList.scss'
 	export default {
 		data () {
 			return {
-				regStatus: '未注册'
+				regStatus: '未注册',
+				menu1:Obj.person.menuList.left.menu1,
+				menu2:Obj.person.menuList.left.menu2,
 			}
 		},
 		components: {
