@@ -1,7 +1,6 @@
 <template>
-	<div>
-		<h1>datagrid</h1>
-		<table>
+	<div class="datagrid">
+		<table class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition">
 			<thead>
 				<tr>
 					<th v-for="(value, key) in dataset[0]" v-if="(colsArray[0] && colsArray.indexOf(key) > -1) || !colsArray[0]">{{key}}</th>
@@ -13,14 +12,12 @@
 				</tr>
 			</tbody>
 		</table>
-		<loading v-show="loadingShow"></loading>
 	</div>
 </template>
 
 <script type="text/javascript">
 	import http from '../../utils/httpClient.js'
-	import loading from '../loading/loading.vue'
-
+	import './datagrid.scss'
 	export default {
 		data: function(){
 			var colsArray = this.cols ? this.cols.split(',') : [];
@@ -36,11 +33,10 @@
 			http.get({
 				url: this.api
 			}).then(res => {
-				self.dataset = res.data
+				self.dataset = res.data.message
 			})
 		},
 		components: {
-			loading
 		}
 	}
 </script>

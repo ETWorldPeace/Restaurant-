@@ -25,6 +25,23 @@
 					<li><i class="glyphicon glyphicon-chevron-down"></i></li>
 				</ul>
 			</div>
+			<div class="foodRight">
+				<div class="tableRight">
+				 	<el-table :data="tableData3" height="380" border style=" overflow-x:none;">
+				    <el-table-column prop="date" label="入职日期" width="100"></el-table-column>
+				    <el-table-column prop="name" label="姓名" width="70"></el-table-column>
+				    <el-table-column prop="sex" label="性别" width="70"></el-table-column>
+				    <el-table-column prop="login" label="登陆账号" width="100"></el-table-column>
+				    <el-table-column prop="tel" label="联系电话" width="120"></el-table-column>
+				    <el-table-column prop="email" label="邮箱" width="170"></el-table-column>
+				    <el-table-column prop="job" label="职级" width="70"></el-table-column>
+				    <el-table-column prop="address" label="地址"></el-table-column></el-table>
+			    </div>
+			    <div class="search">
+			    	   <el-input v-model="input" placeholder="请输入内容"></el-input>
+			    	   <el-button type="primary" icon="el-icon-search">搜索</el-button>
+			    </div>
+			</div>
 		</div>
 	</div>
 </template>
@@ -33,9 +50,122 @@
 	export default {
 		data () {
 			return {
+				input:'',
 				regStatus: '未注册',
-				menu1:Obj.person.menuList.left.menu1,
-				menu2:Obj.person.menuList.left.menu2,
+				tableData3: [{
+		          date: '2016-05-03',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-02',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-04',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-01',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-08',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-06',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }, {
+		          date: '2016-05-07',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        },
+		        {
+		          date: '2016-05-07',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        },
+		        {
+		          date: '2016-05-07',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        },
+		        {
+		          date: '2016-05-07',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        },
+		        {
+		          date: '2016-05-07',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        },
+		        {
+		          date: '2016-05-07',
+		          name: '王小虎',
+		          sex:'男',
+		          login:'653652',
+		          tel:'18273647362',
+		          email:'1092837466@qq.com',
+		          job:'员工',
+		          address: '上海市普陀区金沙江路 1518 弄'
+		        }]
 			}
 		},
 		components: {

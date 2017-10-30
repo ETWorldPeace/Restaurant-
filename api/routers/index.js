@@ -3,6 +3,7 @@ var express = require('express');
 var loginRouter = require("./login.js");
 
 var productRouter = require('./product');
+var wlyRouter = require('./wlyGetData');
 
 var app = express();
 module.exports ={
@@ -23,6 +24,8 @@ module.exports ={
 		loginRouter.Login(app);
 		
 		productRouter.Product(app);
+
+		wlyRouter.wlyData(app);
 		
 		app.listen(port);
 

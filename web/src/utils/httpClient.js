@@ -1,43 +1,33 @@
 import axios from 'axios'
+import $ from 'jquery'
+
+
 
 var baseUrl = 'http://localhost:88/';
-var filterUrl = function(url){
-	if(url.startsWith('http')){
-		return url;
-	}
-	return baseUrl + url;
-}
-
+// var filterUrl = function (url){
+// 	if(url.startsWith('http')){
+// 		return url;
+// 	}
+// 	return baseUrl + url;
+// }
 export default {
 	get: (opts) => new Promise((resolve, reject) => {
-		if(opts.vm){
-			opts.vm[opts.loading || 'loadingShow'] = true;
-		}
-		axios.get(filterUrl(opts.url), opts.params).then(function(response){
-			if(opts.vm){
-				opts.vm[opts.loading || 'loadingShow'] = false;
-			}
+		$(".spinnerParent").show()
+		axios.get(baseUrl+opts.url, opts.params).then(function(response){
+			$(".spinnerParent").hide()
 			resolve(response);
 		}).catch(function(error){
-			if(opts.vm){
-				opts.vm[opts.loading || 'loadingShow'] = false;
-			}			
+			$(".spinnerParent").hide()		
 			reject(error);
 		})
 	}),
 	post: (opts) => new Promise((resolve, reject) => {
-		if(opts.vm){
-			opts.vm[opts.loading || 'loadingShow'] = true;
-		}
-		axios.post(filterUrl(opts.url), opts.params).then(function(response){
-			if(opts.vm){
-				opts.vm[opts.loading || 'loadingShow'] = false;
-			}
+		$(".spinnerParent").show()
+		axios.post(baseUrl+opts.url, opts.params).then(function(response){
+			$(".spinnerParent").hide()
 			resolve(response);
 		}).catch(function(error){
-			if(opts.vm){
-				opts.vm[opts.loading || 'loadingShow'] = false;
-			}			
+			$(".spinnerParent").hide()		
 			reject(error);
 		})
 	})
