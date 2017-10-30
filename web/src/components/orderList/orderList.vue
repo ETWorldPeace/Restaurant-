@@ -6,138 +6,133 @@
           <el-button type="primary" plain>搜索</el-button>
         </div>
         <div class="demo-input-suffix">
-          <el-input placeholder="请输入内容" v-model="inputOrder">
+          <el-input placeholder="查找订单" v-model="inputOrder">
             <i slot="prefix" class="el-input__icon el-icon-search"></i>
           </el-input>
         </div>
       </div>
+        <div class="adminRight">
+          <div class="adminTop">
+            <el-tabs v-model="activeName2" type="card" @tab-click="handleClick">
+            <el-tab-pane label="所有订单" name="first" class="all">
+                <div class="datagrid orderData">
+                <table class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition">
+                  <thead>
+                    <tr>
+                      <th v-for="(value, key) in dataset[0]">{{key}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(obj, index) in dataset">
+                      <td v-for="(value, key) in obj">{{value}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </el-tab-pane>
+            <el-tab-pane label="未完成订单" name="second" class="undown">
+              <el-form ref="form" :model="form" label-width="80px">
+                <div class="datagrid orderData">
+                  <table class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition">
+                    <thead>
+                      <tr>
+                        <th v-for="(value, key) in dataset2[0]">{{key}}</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr v-for="(obj, index) in dataset2">
+                        <td v-for="(value, key) in obj">{{value}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </el-form>
+            </el-tab-pane>
+            <el-tab-pane label="已完成订单" name="third" class="down">
+              <div class="datagrid orderData">
+                <table class="el-table el-table--fit el-table--border el-table--enable-row-hover el-table--enable-row-transition">
+                  <thead>
+                    <tr>
+                      <th v-for="(value, key) in dataset3[0]">{{key}}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(obj, index) in dataset3">
+                      <td v-for="(value, key) in obj">{{value}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </el-tab-pane>
+          </el-tabs>
+          </div>
+    </div>
     </div>
 </template>
+
 <script type="text/javascript">
-    import './orderList.scss'
-    export default {
-        data () {
-            return {
-                input:'',
-                inputOrder:'',
-                regStatus: '未注册',
-                tableData3: [{
-                  date: '2016-05-03',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                  date: '2016-05-02',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                  date: '2016-05-04',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                  date: '2016-05-01',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                  date: '2016-05-08',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                  date: '2016-05-06',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }, {
-                  date: '2016-05-07',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                },
-                {
-                  date: '2016-05-07',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                },
-                {
-                  date: '2016-05-07',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                },
-                {
-                  date: '2016-05-07',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                },
-                {
-                  date: '2016-05-07',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                },
-                {
-                  date: '2016-05-07',
-                  name: '王小虎',
-                  sex:'男',
-                  login:'653652',
-                  tel:'18273647362',
-                  email:'1092837466@qq.com',
-                  job:'员工',
-                  address: '上海市普陀区金沙江路 1518 弄'
-                }]
+  
+  import http from '../../utils/httpClient.js'
+  import './orderList.scss'
+  import $ from 'jquery'
+  export default {
+    data: function(){
+      return {
+        inputOrder:'',
+        dataset: [],
+        dataset2: [],
+        dataset3: [],
+        api:"getOrderList",
+        api2:'orderlistUndown',
+        api3:'orderlistDown',
+        activeName2: 'first',
+        form: {
+              name: '',
+              region: '',
+              date1: '',
+              date2: '',
+              delivery: false,
+              type: [],
+              resource: '',
+              desc: ''
             }
-        },
-        components: {
         }
+    },
+    methods: {
+      handleClick(tab, event) {
+          console.log(tab.$el.getAttribute('class'))
+          if(tab.$el.getAttribute('class') == 'el-tab-pane undown'){
+            var self = this;
+            http.get({
+              url: this.api2
+            }).then(res => {
+              self.dataset2 = res.data.message
+            })
+          }else if(tab.$el.getAttribute('class') == 'el-tab-pane down'){
+            console.log(77777)
+            var self = this;
+            http.get({
+              url: this.api3
+            }).then(res => {
+              self.dataset3 = res.data.message
+            })
+          }
+        },
+        onSubmit() {
+        }
+      },
+    mounted: function(){
+      var self = this;
+      http.get({
+        url: this.api
+      }).then(res => {
+        self.dataset = res.data.message
+      })
+    },
+    components: {
+      datagrid :{
+        template: `<div><slot></slot></div>`
+      }
     }
+  }
 </script>

@@ -4,31 +4,90 @@ var db = require('../modules/SQLHelper.js');
 module.exports = {
     
     wlyData: function(app){
-        app.post('/getMembers', function(request, response){
+        app.get('/getMembers', function(request, response){
             //在这个位置处理传过来的参数
             var argument = request.body;
-            var order = 'select * from fruits';
+            var order = 'select * from memberList';
             //var order = 'select  * from '表名' where id="传过来的参数"';
             //查询这个id所对应的这一条数据
             db.select(order, function(restul){
                 response.send(restul);
             })
         })
-        app.get('/getMembers', function(request, response){
+        app.get('/getAdmin', function(request, response){
             //在这个位置处理传过来的参数
             var argument = request.body;
-            var order = 'select * from goods';
+            var order = 'select * from adminList';
+            //var order = 'select  * from '表名' where id="传过来的参数"';
+            //查询这个id所对应的这一条数据
+            db.select(order, function(restul){
+                response.send(restul);
+            })
+        })
+        app.get('/getAdminLimit', function(request, response){
+            //在这个位置处理传过来的参数
+            var argument = request.body;
+            var order = 'select * from adminLimit';
+            //var order = 'select  * from '表名' where id="传过来的参数"';
+            //查询这个id所对应的这一条数据
+            db.select(order, function(restul){
+                response.send(restul);
+            })
+        })
+        app.get('/getOrderList', function(request, response){
+            //在这个位置处理传过来的参数
+            var argument = request.body;
+            var order = 'select * from orderList';
+            //var order = 'select  * from '表名' where id="传过来的参数"';
+            //查询这个id所对应的这一条数据
+            db.select(order, function(restul){
+                response.send(restul);
+            })
+        })
+        app.get('/orderlistUndown', function(request, response){
+            //在这个位置处理传过来的参数
+            var argument = request.body;
+            var order = 'select * from orderlistUndown';
+            //var order = 'select  * from '表名' where id="传过来的参数"';
+            //查询这个id所对应的这一条数据
+            db.select(order, function(restul){
+                response.send(restul);
+            })
+        })
+        app.get('/orderlistDown', function(request, response){
+            //在这个位置处理传过来的参数
+            var argument = request.body;
+            var order = 'select * from orderlistDown';
+            //var order = 'select  * from '表名' where id="传过来的参数"';
+            //查询这个id所对应的这一条数据
+            db.select(order, function(restul){
+                response.send(restul);
+            })
+        })
+
+        app.get('/getMembers2', function(request, response){
+            //在这个位置处理传过来的参数
+            var argument = request.body;
+            var order = 'select * from memberList';
             //var order = "insert into '表名' ('字段名','字段名','字段名'...) values('传过来参数','传过来参数','传过来参数')";
             //给这个吗表中插入这些数据
             db.insert(order, function(result){
-                console.log(result);
-
                 response.send(result);
             })
         })
-        app.get('/getgoods3', function(request, response){
+        app.get('/getAdmin2', function(request, response){
             //在这个位置处理传过来的参数
             var argument = request.body;
+            var order = 'select * from adminList';
+            //var order = "update '表名' set '想要设置的字段名'='原来的数据'+'传过来的数据' where id='传过来的id'";
+            db.update(order, function(restul){
+                response.send(restul);
+            })
+        })
+        app.get('/getAdminLimit2', function(request, response){
+            //在这个位置处理传过来的参数
+            var argument = request.body;
+            var order = 'select * from adminLimit';
             //var order = "update '表名' set '想要设置的字段名'='原来的数据'+'传过来的数据' where id='传过来的id'";
             db.update(order, function(restul){
                 response.send(restul);
